@@ -1,0 +1,14 @@
+; Ex.3 - a) volume de uma esfera
+(define pi 3.1415926536)
+(define volume-esfera
+  (lambda (r)
+    (* (/ 4 3) pi (expt r 3))))
+
+; Ex.3 - b) área de uma circunferência
+(define area-circ
+  (lambda (r)
+    (* pi (expt r 2))))
+
+; Ex. 3 - c) numero de itens diferentes de zero em uma lista
+(define conta-nao-zero
+  (
