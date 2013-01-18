@@ -70,5 +70,5 @@
 
 ; Ex.8 - Construa um procedimento que receba três pontos (pares) A, B e C representando os vértices de um triângulo, um quarto ponto P (par), e verifique se P está ou não dentro do triângulo.
 (define dentro-do-triangulo?
-  (lambda (A B C P)
+  (lambda (A B C P)))
     
