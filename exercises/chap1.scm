@@ -23,7 +23,7 @@
            (count-non-zero (cdr list))))))
 
 
-; Ex.3 - d) takes a list and returns the pairs sub-list (list containing all even numbers)
+; Ex.3 - d) takes a list and returns the even-half sub-list (list containing all even numbers)
 ; OPTIMIZE - not tail-recursive
 (define list-even-half
   (lambda (list)
