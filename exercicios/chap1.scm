@@ -1,30 +1,30 @@
 (define pi 3.1415926536)
 
-; Ex.3 - a) volume de uma esfera
-(define volume-esfera
+; Ex.3 - a) volume of a sphere
+(define sphere-volume
   (lambda (r)
     (* (/ 4 3) pi (expt r 3))))
 
 
-; Ex.3 - b) área de uma circunferência
-(define area-circ
+; Ex.3 - b) area of a circle
+(define circle-area
   (lambda (r)
     (* pi (expt r 2))))
 
 
-; Ex.3 - c) numero de itens diferentes de zero em uma lista
-; >>> (conta-nao-zero '(1 2 3 0 4 0))
+; Ex.3 - c) counts the number of items different than zero in a list
+; >>> (count-non-zero '(1 2 3 0 4 0))
 ; >>> 4
-(define conta-nao-zero
+(define count-non-zero
   (lambda (list)
     (if (null? list)
         0
         (+ (if (= (car list) 0) 0 1)
-           (conta-nao-zero (cdr list))))))
+           (count-non-zero (cdr list))))))
 
 
-; Ex.3 - d) recebe uma lista e retorna a metade par da lista
-; OTIMIZAR - não é recursivo na cauda
+; Ex.3 - d) takes a list and returns the pairs sub-list (list containing all even numbers)
+; OPTIMIZE - not tail-recursive
 (define list-even-half
   (lambda (list)
     (if (null? list)
@@ -35,7 +35,7 @@
             (list-even-half (cdr list))))))
 
 
-; Ex.3 - e) verifica se três números podem ser as medidas dos lados de um triângulo
+; Ex.3 - e) checks if three numbers are valid sides of a triangle
 (define triangle?
   (lambda (a b c)
     (and (> (+ a b) c)
@@ -43,7 +43,7 @@
          (> (+ b c) a))))
 
 
-; Ex.6 - Escreva dois procedimentos que transformem medidas de temperatura entre Celsius e Farenheit
+; Ex.6 - Write two procedures that convert temperatures, to and from, between Celsius and Farenheit
 (define celsius->farenheit
   (lambda (t)
     (+ (* t (/ 9 5)) 32)))
@@ -53,11 +53,10 @@
     (* (- t 32) (/ 5 9))))
 
 
-; Ex.7 - Calcular distancia entre dois pontos (pares) no plano
-; Ponto: (x1 . x2)
-; >>> (distancia '(1 . 2) '(2 . 3))
+; Ex.7 - Calculate the distance between two points (represented as pairs) in a plane)
+; >>> (distance '(1 . 2) '(2 . 3))
 ; >>> 1.4142135623731
-(define distancia
+(define distance
   (lambda (x y)
     (sqrt (+
            (expt
@@ -68,7 +67,7 @@
             2)))))
 
 
-; Ex.8 - Construa um procedimento que receba três pontos (pares) A, B e C representando os vértices de um triângulo, um quarto ponto P (par), e verifique se P está ou não dentro do triângulo.
-(define dentro-do-triangulo?
+; Ex.8 - Build a procedure that takes three points (pairs) A, B and C representing vertices of a triangle, a fourth point P (pair), and check if P is or is not within the triangle.
+(define within-triangle?
   (lambda (A B C P)))
     
