@@ -23,6 +23,8 @@
 ; much simpler (although may take longer to run depending on the size of the lists)
 ; simply appends both lists and then sorts the resulting list using quicksort
 ; uses list comprehensions for a simpler quicksort definition
+; requires chicken scheme extension 'list-of'
+; TODO: define my own 'list-of' procedure
 (define smart-intercalate
   (lambda (listA listB)
     (define quicksort
