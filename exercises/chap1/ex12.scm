@@ -1,6 +1,6 @@
 (require-extension list-of)
 
-; more complex - reads each element of both lists, comparing two by two and appending smaller onto the result list
+; more complex: reads each element of both lists, comparing two by two and appending smaller onto the result list
 (define intercalate
   (lambda (listA listB)
     (if (not (and (sorted? listA <) (sorted? listB <)))
