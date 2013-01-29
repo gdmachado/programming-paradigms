@@ -1,26 +1,19 @@
 (require-extension list-of)
 
-; more complex: reads each element of both lists, comparing two by two and appending smaller onto the result list
 (define intercalate
-  (lambda (listA listB)
-    (if (not (and (sorted? listA <) (sorted? listB <)))
+  (lambda (a b)
+    (if (not (and (sorted? a <) (sorted? b <)))
         (error "Both lists must be sorted...")
-        (let ((result (list)))
-          (define intercalate-rec
-            (lambda (listA listB result)
-              (if (and (null? listA) (null? listB))
-                  (reverse result)
-                  (if (or (null? listA) (null? listB))
-                      (append (reverse result)
-                              (if (null? listA)
-                                  listB
-                                  listA))
-                      (if (<= (car listA) (car listB))
-                          (intercalate-rec (cdr listA) listB (cons (car listA) result))
-                          (intercalate-rec listA (cdr listB) (cons (car listB) result)))))))
-          (intercalate-rec listA listB result)))))
+        (cond ((null? a)
+               b)
+              ((null? b)
+               a)
+              ((< (car a) (car b))
+               (cons (car a) (intercalate (cdr a) b)))
+              (else
+               (cons (car b) (intercalate (cdr b) a)))))))
 
-; much simpler (although may take longer to run depending on the size of the lists)
+; simpler (although may take longer to run depending on the size of the lists)
 ; simply appends both lists and then sorts the resulting list using quicksort
 ; uses list comprehensions for a simpler quicksort definition
 ; requires chicken scheme extension 'list-of'
