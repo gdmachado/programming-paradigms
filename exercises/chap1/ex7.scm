@@ -1,12 +1,8 @@
-; Ex.7 - Calculate the distance between two points (represented as pairs) in a plane)
-; >>> (distance '(1 . 2) '(2 . 3))
-; >>> 1.4142135623731
-(define distance
-  (lambda (x y)
-    (sqrt (+
-           (expt
-            (- (car y) (car x))
-            2)
-           (expt
-            (- (cdr y) (cdr x))
-            2)))))
+; Ex.6 - Write two procedures that convert temperatures, to and from, between Celsius and Farenheit
+(define celsius->farenheit
+  (lambda (t)
+    (+ (* t (/ 9 5)) 32)))
+
+(define farenheit->celsius
+  (lambda (t)
+    (* (- t 32) (/ 5 9))))
